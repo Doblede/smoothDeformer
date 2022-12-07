@@ -1,0 +1,46 @@
+//
+//  Procedure Name:
+//  AEsmoothDeformerTemplate
+//
+//  Description Name:
+//  Creates the attribute editor controls for the smooth deformer
+//
+
+
+global proc AEsmoothDeformerTemplate( string $nodeName )
+{
+
+    //START TEMPLATE
+    editorTemplate -beginScrollLayout;
+
+    //DEFORMER ATTRIBUTES
+    editorTemplate -beginLayout "Deformer Attributes" -collapse 0;
+        editorTemplate -addControl "envelope";
+        editorTemplate -addControl "smoothAlgorithm";
+    editorTemplate -endLayout;
+
+    //SMOOTH ATTRIBUTES
+    editorTemplate -beginLayout "Smooth Attributes" -collapse 0;
+        editorTemplate -addControl "strength";
+        editorTemplate -addControl "smoothBorders";
+        editorTemplate -addControl "maintainVolume";
+        editorTemplate -addControl "lambda";
+    editorTemplate -endLayout;
+
+    editorTemplate -beginLayout "Taubin Attribute" -collapse 0;
+        editorTemplate -addControl "mu";
+    editorTemplate -endLayout;
+
+    AEdependNodeTemplate $nodeName;
+    
+    //SUPRESS ATTRIBUTES
+    editorTemplate -suppress "input";
+    editorTemplate -suppress "weightList";
+    editorTemplate -suppress "map64BitIndices";
+     
+    editorTemplate -addExtraControls;
+
+    //END
+    editorTemplate -endScrollLayout;
+}
+
