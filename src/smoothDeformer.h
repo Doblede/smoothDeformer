@@ -1,8 +1,7 @@
 #ifndef smoothDeformer_H
 #define smoothDeformer_H
 
-#include <thread>
-
+#include <maya/MThreadUtils.h>
 #include <maya/MThreadPool.h>
 #include <maya/MPxDeformerNode.h>
 #include <maya/MItGeometry.h>

@@ -115,7 +115,7 @@ MStatus SmoothDeformer::deform(MDataBlock& dataBlock, MItGeometry& itGeo, const 
 
     for (int type = 0; type < smoothType+1; type++){
         for (int itGeo = 0; itGeo < iterations; itGeo++) {
-            unsigned int numTasks = std::thread::hardware_concurrency();
+            unsigned int numTasks = MThreadUtils::getNumThreads;
             ThreadData* pThreadData = createThreadData(numTasks, &taskData);
             MThreadPool::newParallelRegion(createTasks, (void*)pThreadData);
             taskData.points = taskData.newPoints;

@@ -5,6 +5,9 @@
 //  Description Name:
 //  Creates the attribute editor controls for the smooth deformer
 //
+// Author:
+//  David De Juan
+//
 
 
 global proc AEsmoothDeformerTemplate( string $nodeName )
